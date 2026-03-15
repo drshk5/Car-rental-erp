@@ -103,13 +103,13 @@ export function PaymentsWorkspace({ payments, bookings }: { payments: Payment[];
           <DialogHeader>
             <DialogTitle>Record payment</DialogTitle>
           </DialogHeader>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="dialog-form-grid">
             <SelectField label="Booking" value={form.bookingId} onValueChange={(value) => setForm({ ...form, bookingId: value })} options={bookings.map((booking) => ({ value: booking.id, label: `${booking.bookingNumber} · ${booking.customerName}` }))} />
             <SelectField label="Method" value={form.paymentMethod} onValueChange={(value) => setForm({ ...form, paymentMethod: value })} options={methodOptions} />
             <Field label="Amount" type="number" value={form.amount} onChange={(value) => setForm({ ...form, amount: value })} />
             <Field label="Paid at" type="datetime-local" value={form.paidAtUtc} onChange={(value) => setForm({ ...form, paidAtUtc: value })} />
             <Field label="Reference number" value={form.referenceNumber} onChange={(value) => setForm({ ...form, referenceNumber: value })} />
-            <div className="grid gap-2 md:col-span-2">
+            <div className="form-field form-field--full">
               <Label>Notes</Label>
               <Textarea value={form.notes} onChange={(event) => setForm({ ...form, notes: event.target.value })} />
             </div>
@@ -130,7 +130,7 @@ export function PaymentsWorkspace({ payments, bookings }: { payments: Payment[];
 
 function Field({ label, value, onChange, type = "text" }: { label: string; value: string; onChange: (value: string) => void; type?: string }) {
   return (
-    <div className="grid gap-2">
+    <div className="form-field">
       <Label>{label}</Label>
       <Input type={type} value={value} onChange={(event) => onChange(event.target.value)} />
     </div>
@@ -149,7 +149,7 @@ function SelectField({
   options: Array<{ value: string; label: string }>;
 }) {
   return (
-    <div className="grid gap-2">
+    <div className="form-field">
       <Label>{label}</Label>
       <Select value={value} onValueChange={onValueChange}>
         <SelectTrigger>

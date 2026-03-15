@@ -21,15 +21,15 @@ export default async function LoginPage({
       <section className="login-shell__hero">
         <div className="login-shell__eyebrow">Fleet Operations Control</div>
         <div className="login-shell__content">
-          <h1 className="login-shell__title">Run bookings, fleet, collections, and partner operations from one premium console.</h1>
+          <h1 className="login-shell__title">A calmer, more professional control surface for fleet and revenue operations.</h1>
           <p className="login-shell__description">
-            The frontend now leans into a richer dashboard style: stronger hierarchy, better module framing, cleaner
-            cards, and a more executive operations feel without losing the existing backend workflows.
+            Reservations, rentals, maintenance, settlements, and administration now sit inside a more refined dashboard
+            system with tighter alignment, cleaner spacing, and better visual discipline.
           </p>
         </div>
         <div className="login-shell__spotlight">
           <div className="login-shell__spotlight-label">What changed</div>
-          <div className="login-shell__spotlight-title">A dashboard-first interface with faster wayfinding and cleaner operational context.</div>
+          <div className="login-shell__spotlight-title">Sharper layout rhythm, cleaner action hierarchy, and richer admin-grade presentation across every workspace.</div>
         </div>
         <div className="login-shell__stats">
           {[

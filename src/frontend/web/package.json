@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "yarn build && next start",
-    "dev:hot": "next dev",
+    "dev": "yarn build && next start --hostname localhost --port 3000",
+    "dev:hot": "next dev --hostname localhost --port 3000",
     "build": "next build",
-    "start": "next start",
+    "start": "next start --hostname localhost --port 3000",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "typecheck": "tsc --noEmit"
   },

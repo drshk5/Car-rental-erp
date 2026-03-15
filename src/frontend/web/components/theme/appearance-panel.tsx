@@ -33,12 +33,12 @@ export function AppearancePanel() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline" className="min-w-[12rem] justify-between border-white/20 bg-white/12 text-white hover:bg-white/18 hover:text-white">
+        <Button variant="outline" className="min-w-[12rem] justify-between border-border/70 bg-card text-foreground hover:bg-muted">
           <span className="inline-flex items-center gap-2">
             <Palette className="h-4 w-4" />
             Appearance
           </span>
-          <span className="rounded-full border border-white/15 bg-white/10 px-2 py-0.5 text-[11px] uppercase tracking-[0.2em]">
+          <span className="rounded-full border border-border/70 bg-muted px-2 py-0.5 text-[11px] uppercase tracking-[0.2em]">
             {activeTheme?.label ?? appearance.theme}
           </span>
         </Button>

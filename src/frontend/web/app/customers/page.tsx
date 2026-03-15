@@ -18,7 +18,18 @@ export default async function CustomersPage() {
         <SectionIntro
           eyebrow="Customer Operations"
           title="Customer Intelligence Center"
-          description="Manage customer profiles, verify identities, track rentals, and monitor receivables in one unified workspace."
+          description="Profiles, verification, receivables, and rental activity now sit inside a more premium customer operations frame."
+        />
+        <StatGrid>
+          <StatCard label="Profiles" value={String(customers.data.length)} note="Customer master data" />
+          <StatCard label="Verified" value={String(verified)} note="KYC complete" tone="accent" />
+          <StatCard label="Active rentals" value={String(activeRentals)} note="Current usage" />
+          <StatCard label="Receivables" value={formatCurrency(exposure)} note="Outstanding balance" />
+        </StatGrid>
+        <Surface
+          eyebrow="Workspace intent"
+          title="Customer operations with deeper UI density"
+          description="The customer workspace already carries richer interactions. This page layer now aligns it with the same dashboard-grade framing used across the rest of the product."
         />
         <CustomerWorkspace customers={customers.data} details={details} />
       </AppShell>

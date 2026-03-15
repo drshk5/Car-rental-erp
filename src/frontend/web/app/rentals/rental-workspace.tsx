@@ -535,8 +535,8 @@ export function RentalWorkspace() {
             <DialogTitle>Start rental</DialogTitle>
             <DialogDescription>Create a rental by checking out a confirmed booking that does not already have an active rental.</DialogDescription>
           </DialogHeader>
-          <div className="grid gap-4 py-2">
-            <div className="grid gap-2">
+          <div className="dialog-form-grid py-2">
+            <div className="form-field">
               <Label htmlFor="bookingId">Confirmed booking</Label>
               <Select value={checkoutForm.bookingId} onValueChange={(value) => setCheckoutForm((current) => ({ ...current, bookingId: value }))}>
                 <SelectTrigger id="bookingId">
@@ -551,11 +551,11 @@ export function RentalWorkspace() {
                 </SelectContent>
               </Select>
             </div>
-            <div className="grid gap-2">
+            <div className="form-field">
               <Label htmlFor="odometerOut">Odometer out</Label>
               <Input id="odometerOut" inputMode="numeric" value={checkoutForm.odometerOut} onChange={(event) => setCheckoutForm((current) => ({ ...current, odometerOut: event.target.value }))} placeholder="e.g. 25481" />
             </div>
-            <div className="grid gap-2">
+            <div className="form-field">
               <Label htmlFor="fuelOut">Fuel out</Label>
               <Select value={checkoutForm.fuelOut} onValueChange={(value) => setCheckoutForm((current) => ({ ...current, fuelOut: value }))}>
                 <SelectTrigger id="fuelOut">
@@ -568,7 +568,7 @@ export function RentalWorkspace() {
                 </SelectContent>
               </Select>
             </div>
-            <div className="grid gap-2">
+            <div className="form-field form-field--full">
               <Label htmlFor="checkoutNotes">Notes</Label>
               <Textarea id="checkoutNotes" value={checkoutForm.notes} onChange={(event) => setCheckoutForm((current) => ({ ...current, notes: event.target.value }))} placeholder="Condition notes, accessories issued, visible damage, etc." />
             </div>
@@ -586,12 +586,12 @@ export function RentalWorkspace() {
             <SheetTitle>Check in rental</SheetTitle>
             <SheetDescription>Close the selected rental, update vehicle condition, and finalize extra charges.</SheetDescription>
           </SheetHeader>
-          <div className="grid gap-4 py-6">
-            <div className="grid gap-2">
+          <div className="dialog-form-grid py-6">
+            <div className="form-field">
               <Label htmlFor="odometerIn">Odometer in</Label>
               <Input id="odometerIn" inputMode="numeric" value={checkinForm.odometerIn} onChange={(event) => setCheckinForm((current) => ({ ...current, odometerIn: event.target.value }))} />
             </div>
-            <div className="grid gap-2">
+            <div className="form-field">
               <Label htmlFor="fuelIn">Fuel in</Label>
               <Select value={checkinForm.fuelIn} onValueChange={(value) => setCheckinForm((current) => ({ ...current, fuelIn: value }))}>
                 <SelectTrigger id="fuelIn">
@@ -604,11 +604,11 @@ export function RentalWorkspace() {
                 </SelectContent>
               </Select>
             </div>
-            <div className="grid gap-2">
+            <div className="form-field">
               <Label htmlFor="extraCharges">Extra charges</Label>
               <Input id="extraCharges" inputMode="decimal" value={checkinForm.extraCharges} onChange={(event) => setCheckinForm((current) => ({ ...current, extraCharges: event.target.value }))} />
             </div>
-            <div className="grid gap-2">
+            <div className="form-field form-field--full">
               <Label htmlFor="damageNotes">Damage notes</Label>
               <Textarea id="damageNotes" value={checkinForm.damageNotes} onChange={(event) => setCheckinForm((current) => ({ ...current, damageNotes: event.target.value }))} placeholder="Document new damage, fuel discrepancy, or return comments." />
             </div>
@@ -626,8 +626,8 @@ export function RentalWorkspace() {
             <SheetTitle>Edit damage notes</SheetTitle>
             <SheetDescription>Keep vehicle condition and incident notes current throughout the rental lifecycle.</SheetDescription>
           </SheetHeader>
-          <div className="grid gap-4 py-6">
-            <div className="grid gap-2">
+          <div className="dialog-form-grid py-6">
+            <div className="form-field form-field--full">
               <Label htmlFor="damageNotesOnly">Damage notes</Label>
               <Textarea
                 id="damageNotesOnly"

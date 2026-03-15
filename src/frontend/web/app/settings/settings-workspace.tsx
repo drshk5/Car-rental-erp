@@ -319,7 +319,7 @@ function BranchDialog({
         <DialogHeader>
           <DialogTitle>{mode === "create" ? "Create branch" : "Edit branch"}</DialogTitle>
         </DialogHeader>
-        <div className="grid gap-4">
+        <div className="dialog-form-grid">
           <Field label="Name" value={form.name} onChange={(value) => onChange({ ...form, name: value })} />
           <Field label="City" value={form.city} onChange={(value) => onChange({ ...form, city: value })} />
           <Field label="Address" value={form.address} onChange={(value) => onChange({ ...form, address: value })} />
@@ -362,7 +362,7 @@ function RoleDialog({
         <div className="grid gap-4">
           <Field label="Name" value={form.name} onChange={(value) => onChange({ ...form, name: value })} />
           <SelectField label="Role type" value={form.roleType} onValueChange={(value) => onChange({ ...form, roleType: value })} options={roleTypeOptions} />
-          <div className="grid gap-3">
+          <div className="form-field form-field--full gap-3">
             <Label>Permissions</Label>
             <div className="grid gap-3 rounded-lg border p-4 md:grid-cols-2">
               {permissions.map((permission) => (
@@ -420,7 +420,7 @@ function UserDialog({
         <DialogHeader>
           <DialogTitle>{mode === "create" ? "Create user" : "Edit user"}</DialogTitle>
         </DialogHeader>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="dialog-form-grid">
           <SelectField label="Role" value={form.roleId} onValueChange={(value) => onChange({ ...form, roleId: value })} options={roles.map((role) => ({ value: role.id, label: role.name }))} />
           <SelectField label="Branch" value={form.branchId} onValueChange={(value) => onChange({ ...form, branchId: value })} options={branches.map((branch) => ({ value: branch.id, label: branch.name }))} />
           <Field label="Full name" value={form.fullName} onChange={(value) => onChange({ ...form, fullName: value })} />
@@ -438,7 +438,7 @@ function UserDialog({
 
 function Field({ label, value, onChange, type = "text" }: { label: string; value: string; onChange: (value: string) => void; type?: string }) {
   return (
-    <div className="grid gap-2">
+    <div className="form-field">
       <Label>{label}</Label>
       <Input type={type} value={value} onChange={(event) => onChange(event.target.value)} />
     </div>
@@ -457,7 +457,7 @@ function SelectField({
   options: Array<{ value: string; label: string }>;
 }) {
   return (
-    <div className="grid gap-2">
+    <div className="form-field">
       <Label>{label}</Label>
       <Select value={value} onValueChange={onValueChange}>
         <SelectTrigger>

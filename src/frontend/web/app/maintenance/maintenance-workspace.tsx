@@ -97,13 +97,13 @@ export function MaintenanceWorkspace({ records, vehicles }: { records: Maintenan
           <DialogHeader>
             <DialogTitle>Schedule maintenance</DialogTitle>
           </DialogHeader>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="dialog-form-grid">
             <SelectField label="Vehicle" value={form.vehicleId} onValueChange={(value) => setForm({ ...form, vehicleId: value })} options={vehicles.map((vehicle) => ({ value: vehicle.id, label: `${vehicle.plateNumber} · ${vehicle.brand} ${vehicle.model}` }))} />
             <Field label="Service type" value={form.serviceType} onChange={(value) => setForm({ ...form, serviceType: value })} />
             <Field label="Scheduled at" type="datetime-local" value={form.scheduledAtUtc} onChange={(value) => setForm({ ...form, scheduledAtUtc: value })} />
             <Field label="Vendor name" value={form.vendorName} onChange={(value) => setForm({ ...form, vendorName: value })} />
             <Field label="Cost" type="number" value={form.cost} onChange={(value) => setForm({ ...form, cost: value })} />
-            <div className="grid gap-2 md:col-span-2">
+            <div className="form-field form-field--full">
               <Label>Notes</Label>
               <Textarea value={form.notes} onChange={(event) => setForm({ ...form, notes: event.target.value })} />
             </div>
@@ -124,7 +124,7 @@ export function MaintenanceWorkspace({ records, vehicles }: { records: Maintenan
 
 function Field({ label, value, onChange, type = "text" }: { label: string; value: string; onChange: (value: string) => void; type?: string }) {
   return (
-    <div className="grid gap-2">
+    <div className="form-field">
       <Label>{label}</Label>
       <Input type={type} value={value} onChange={(event) => onChange(event.target.value)} />
     </div>
@@ -143,7 +143,7 @@ function SelectField({
   options: Array<{ value: string; label: string }>;
 }) {
   return (
-    <div className="grid gap-2">
+    <div className="form-field">
       <Label>{label}</Label>
       <Select value={value} onValueChange={onValueChange}>
         <SelectTrigger>

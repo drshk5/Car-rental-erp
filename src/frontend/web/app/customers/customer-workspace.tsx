@@ -863,9 +863,9 @@ export function CustomerWorkspace({
             </DialogDescription>
           </DialogHeader>
 
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
+          <div className="dialog-form-grid py-4">
+            <div className="dialog-form-grid form-field--full">
+              <div className="form-field">
                 <Label htmlFor="fullName">Full Name *</Label>
                 <Input
                   id="fullName"
@@ -874,7 +874,7 @@ export function CustomerWorkspace({
                   placeholder="Enter full name"
                 />
               </div>
-              <div className="space-y-2">
+              <div className="form-field">
                 <Label htmlFor="email">Email</Label>
                 <Input
                   id="email"
@@ -886,8 +886,8 @@ export function CustomerWorkspace({
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
+            <div className="dialog-form-grid form-field--full">
+              <div className="form-field">
                 <Label htmlFor="phone">Phone *</Label>
                 <Input
                   id="phone"
@@ -896,7 +896,7 @@ export function CustomerWorkspace({
                   placeholder="+91 XXXXX XXXXX"
                 />
               </div>
-              <div className="space-y-2">
+              <div className="form-field">
                 <Label htmlFor="alternatePhone">Alternate Phone</Label>
                 <Input
                   id="alternatePhone"
@@ -907,7 +907,7 @@ export function CustomerWorkspace({
               </div>
             </div>
 
-            <div className="space-y-2">
+            <div className="form-field form-field--full">
               <Label htmlFor="address">Address</Label>
               <Input
                 id="address"
@@ -917,8 +917,8 @@ export function CustomerWorkspace({
               />
             </div>
 
-            <div className="grid grid-cols-3 gap-4">
-              <div className="space-y-2">
+            <div className="dialog-form-grid form-field--full [grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr))]">
+              <div className="form-field">
                 <Label htmlFor="city">City</Label>
                 <Input
                   id="city"
@@ -927,7 +927,7 @@ export function CustomerWorkspace({
                   placeholder="City"
                 />
               </div>
-              <div className="space-y-2">
+              <div className="form-field">
                 <Label htmlFor="state">State</Label>
                 <Input
                   id="state"
@@ -936,7 +936,7 @@ export function CustomerWorkspace({
                   placeholder="State"
                 />
               </div>
-              <div className="space-y-2">
+              <div className="form-field">
                 <Label htmlFor="postalCode">Postal Code</Label>
                 <Input
                   id="postalCode"
@@ -947,8 +947,8 @@ export function CustomerWorkspace({
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
+            <div className="dialog-form-grid form-field--full">
+              <div className="form-field">
                 <Label htmlFor="dateOfBirth">Date of Birth</Label>
                 <Input
                   id="dateOfBirth"
@@ -957,7 +957,7 @@ export function CustomerWorkspace({
                   onChange={(e) => setForm({ ...form, dateOfBirth: e.target.value })}
                 />
               </div>
-              <div className="space-y-2">
+              <div className="form-field">
                 <Label htmlFor="nationality">Nationality</Label>
                 <Input
                   id="nationality"
@@ -968,8 +968,8 @@ export function CustomerWorkspace({
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
+            <div className="dialog-form-grid form-field--full">
+              <div className="form-field">
                 <Label htmlFor="licenseNumber">License Number</Label>
                 <Input
                   id="licenseNumber"
@@ -978,7 +978,7 @@ export function CustomerWorkspace({
                   placeholder="DL number"
                 />
               </div>
-              <div className="space-y-2">
+              <div className="form-field">
                 <Label htmlFor="licenseExpiry">License Expiry</Label>
                 <Input
                   id="licenseExpiry"
@@ -989,8 +989,8 @@ export function CustomerWorkspace({
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
+            <div className="dialog-form-grid form-field--full">
+              <div className="form-field">
                 <Label htmlFor="identityDocumentType">ID Document Type</Label>
                 <Select
                   value={form.identityDocumentType}
@@ -1007,7 +1007,7 @@ export function CustomerWorkspace({
                   </SelectContent>
                 </Select>
               </div>
-              <div className="space-y-2">
+              <div className="form-field">
                 <Label htmlFor="identityDocumentNumber">ID Number</Label>
                 <Input
                   id="identityDocumentNumber"
@@ -1018,8 +1018,8 @@ export function CustomerWorkspace({
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
+            <div className="dialog-form-grid form-field--full">
+              <div className="form-field">
                 <Label htmlFor="emergencyContactName">Emergency Contact Name</Label>
                 <Input
                   id="emergencyContactName"
@@ -1028,7 +1028,7 @@ export function CustomerWorkspace({
                   placeholder="Contact name"
                 />
               </div>
-              <div className="space-y-2">
+              <div className="form-field">
                 <Label htmlFor="emergencyContactPhone">Emergency Contact Phone</Label>
                 <Input
                   id="emergencyContactPhone"
@@ -1039,7 +1039,7 @@ export function CustomerWorkspace({
               </div>
             </div>
 
-            <div className="space-y-2">
+            <div className="form-field form-field--full">
               <Label htmlFor="notes">Operations Notes</Label>
               <Textarea
                 id="notes"
@@ -1050,7 +1050,7 @@ export function CustomerWorkspace({
               />
             </div>
 
-            <div className="space-y-2">
+            <div className="form-field form-field--full">
               <Label htmlFor="riskNotes">Risk Notes</Label>
               <Textarea
                 id="riskNotes"
@@ -1085,7 +1085,7 @@ export function CustomerWorkspace({
 
       {/* Edit Customer Sheet */}
       <Sheet open={isEditSheetOpen} onOpenChange={setIsEditSheetOpen}>
-        <SheetContent className="w-[500px] sm:max-w-[540px] overflow-y-auto">
+        <SheetContent className="overflow-y-auto">
           <SheetHeader>
             <SheetTitle className="flex items-center gap-2">
               <Edit className="h-5 w-5" />
@@ -1096,9 +1096,9 @@ export function CustomerWorkspace({
             </SheetDescription>
           </SheetHeader>
 
-          <div className="grid gap-4 py-4">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
+          <div className="dialog-form-grid py-4">
+            <div className="dialog-form-grid form-field--full">
+              <div className="form-field">
                 <Label htmlFor="edit-fullName">Full Name *</Label>
                 <Input
                   id="edit-fullName"
@@ -1106,7 +1106,7 @@ export function CustomerWorkspace({
                   onChange={(e) => setForm({ ...form, fullName: e.target.value })}
                 />
               </div>
-              <div className="space-y-2">
+              <div className="form-field">
                 <Label htmlFor="edit-email">Email</Label>
                 <Input
                   id="edit-email"
@@ -1117,8 +1117,8 @@ export function CustomerWorkspace({
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
+            <div className="dialog-form-grid form-field--full">
+              <div className="form-field">
                 <Label htmlFor="edit-phone">Phone *</Label>
                 <Input
                   id="edit-phone"
@@ -1126,7 +1126,7 @@ export function CustomerWorkspace({
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
                 />
               </div>
-              <div className="space-y-2">
+              <div className="form-field">
                 <Label htmlFor="edit-alternatePhone">Alternate Phone</Label>
                 <Input
                   id="edit-alternatePhone"
@@ -1136,7 +1136,7 @@ export function CustomerWorkspace({
               </div>
             </div>
 
-            <div className="space-y-2">
+            <div className="form-field form-field--full">
               <Label htmlFor="edit-address">Address</Label>
               <Input
                 id="edit-address"
@@ -1145,8 +1145,8 @@ export function CustomerWorkspace({
               />
             </div>
 
-            <div className="grid grid-cols-3 gap-4">
-              <div className="space-y-2">
+            <div className="dialog-form-grid form-field--full [grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr))]">
+              <div className="form-field">
                 <Label htmlFor="edit-city">City</Label>
                 <Input
                   id="edit-city"
@@ -1154,7 +1154,7 @@ export function CustomerWorkspace({
                   onChange={(e) => setForm({ ...form, city: e.target.value })}
                 />
               </div>
-              <div className="space-y-2">
+              <div className="form-field">
                 <Label htmlFor="edit-state">State</Label>
                 <Input
                   id="edit-state"
@@ -1162,7 +1162,7 @@ export function CustomerWorkspace({
                   onChange={(e) => setForm({ ...form, state: e.target.value })}
                 />
               </div>
-              <div className="space-y-2">
+              <div className="form-field">
                 <Label htmlFor="edit-postalCode">Postal Code</Label>
                 <Input
                   id="edit-postalCode"
@@ -1172,8 +1172,8 @@ export function CustomerWorkspace({
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
+            <div className="dialog-form-grid form-field--full">
+              <div className="form-field">
                 <Label htmlFor="edit-licenseNumber">License Number</Label>
                 <Input
                   id="edit-licenseNumber"
@@ -1181,7 +1181,7 @@ export function CustomerWorkspace({
                   onChange={(e) => setForm({ ...form, licenseNumber: e.target.value })}
                 />
               </div>
-              <div className="space-y-2">
+              <div className="form-field">
                 <Label htmlFor="edit-licenseExpiry">License Expiry</Label>
                 <Input
                   id="edit-licenseExpiry"
@@ -1192,8 +1192,8 @@ export function CustomerWorkspace({
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
+            <div className="dialog-form-grid form-field--full">
+              <div className="form-field">
                 <Label htmlFor="edit-identityDocumentType">ID Type</Label>
                 <Select
                   value={form.identityDocumentType}
@@ -1210,7 +1210,7 @@ export function CustomerWorkspace({
                   </SelectContent>
                 </Select>
               </div>
-              <div className="space-y-2">
+              <div className="form-field">
                 <Label htmlFor="edit-identityDocumentNumber">ID Number</Label>
                 <Input
                   id="edit-identityDocumentNumber"
@@ -1220,8 +1220,8 @@ export function CustomerWorkspace({
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-2">
+            <div className="dialog-form-grid form-field--full">
+              <div className="form-field">
                 <Label htmlFor="edit-emergencyContactName">Emergency Contact</Label>
                 <Input
                   id="edit-emergencyContactName"
@@ -1229,7 +1229,7 @@ export function CustomerWorkspace({
                   onChange={(e) => setForm({ ...form, emergencyContactName: e.target.value })}
                 />
               </div>
-              <div className="space-y-2">
+              <div className="form-field">
                 <Label htmlFor="edit-emergencyContactPhone">Emergency Phone</Label>
                 <Input
                   id="edit-emergencyContactPhone"
@@ -1239,7 +1239,7 @@ export function CustomerWorkspace({
               </div>
             </div>
 
-            <div className="space-y-2">
+            <div className="form-field form-field--full">
               <Label htmlFor="edit-notes">Operations Notes</Label>
               <Textarea
                 id="edit-notes"
@@ -1249,7 +1249,7 @@ export function CustomerWorkspace({
               />
             </div>
 
-            <div className="space-y-2">
+            <div className="form-field form-field--full">
               <Label htmlFor="edit-riskNotes">Risk Notes</Label>
               <Textarea
                 id="edit-riskNotes"

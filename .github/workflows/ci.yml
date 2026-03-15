@@ -30,6 +30,42 @@ jobs:
       - name: Test
         run: dotnet test src/backend/CarRentalERP.Api.Tests/CarRentalERP.Api.Tests.csproj --no-build --configuration Release
 
+      - name: Backend Smoke And Migration Check
+        shell: bash
+        env:
+          ASPNETCORE_URLS: http://127.0.0.1:5080
+          ASPNETCORE_ENVIRONMENT: Production
+          ConnectionStrings__DefaultConnection: Data Source=/tmp/car-rental-erp-ci-smoke.db
+          Authentication__SigningKey: ci-signing-key-with-at-least-32-characters
+          Seeding__DemoDataEnabled: "false"
+        run: |
+          set -euo pipefail
+
+          dotnet build src/backend/CarRentalERP.Api/CarRentalERP.Api.csproj --configuration Release --no-restore
+
+          dotnet src/backend/CarRentalERP.Api/bin/Release/net8.0/CarRentalERP.Api.dll > /tmp/car-rental-erp-ci-smoke.log 2>&1 &
+          api_pid=$!
+
+          cleanup() {
+            kill "$api_pid" 2>/dev/null || true
+            wait "$api_pid" 2>/dev/null || true
+          }
+
+          trap cleanup EXIT
+
+          for attempt in {1..30}; do
+            if curl -fsS http://127.0.0.1:5080/api/v1/system/health > /tmp/car-rental-erp-health.json; then
+              cat /tmp/car-rental-erp-health.json
+              exit 0
+            fi
+
+            sleep 1
+          done
+
+          echo "Backend smoke check failed. Startup log:"
+          cat /tmp/car-rental-erp-ci-smoke.log
+          exit 1
+
   frontend:
     name: Frontend Build
     runs-on: ubuntu-latest

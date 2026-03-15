@@ -226,7 +226,7 @@ function Field({
   type?: string;
 }) {
   return (
-    <div className="grid gap-2">
+    <div className="form-field">
       <Label>{label}</Label>
       <Input type={type} value={value} onChange={(event) => onChange(event.target.value)} />
     </div>

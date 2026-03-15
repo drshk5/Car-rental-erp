@@ -73,13 +73,13 @@ export default async function DashboardPage() {
             <SectionIntro
               eyebrow="Command Center"
               title="Operations overview"
-              description="Track live fleet availability, booking demand, payment exposure, and partner revenue in a dashboard layout inspired by modern analytics products."
+              description="A tighter executive snapshot of fleet readiness, booking pressure, collections, and partner revenue."
             />
             <div className="dashboard-hero__callout">
               <span className="dashboard-hero__callout-label">Operations health</span>
               <strong className="dashboard-hero__callout-value">{readiness}% ready fleet</strong>
               <p className="dashboard-hero__callout-text">
-                Available vehicles, scheduled handovers, service load, and collection pressure are all framed in a single executive view.
+                Fleet availability, service load, and payment risk are aligned into one clean operational summary.
               </p>
             </div>
           </div>
@@ -107,7 +107,7 @@ export default async function DashboardPage() {
           <Surface
             eyebrow="Operating signals"
             title="Daily action board"
-            description="The dashboard starter uses varied panel density; this board applies that same idea to your dispatch, returns, and risk workflows."
+            description="Priority areas for dispatch, returns, and intervention."
           >
             <div className="dashboard-action-grid">
               {actionBoard.map((item) => {
@@ -130,7 +130,7 @@ export default async function DashboardPage() {
           <Surface
             eyebrow="Revenue pulse"
             title="Financial highlights"
-            description="A compact insight rail for money movement and workshop pressure."
+            description="A compact read on collections and workshop load."
           >
             <div className="dashboard-focus-list">
               {focusLanes.map((item) => {
@@ -195,7 +195,7 @@ export default async function DashboardPage() {
         <Surface
           eyebrow="Snapshot"
           title="Operational summary"
-          description="A fast executive summary for current booking pressure and fleet utilization."
+          description="A concise summary of utilization, collections risk, and ready inventory."
         >
           <div className="dashboard-summary-grid">
             <article className="dashboard-summary-card">

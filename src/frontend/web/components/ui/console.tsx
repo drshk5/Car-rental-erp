@@ -51,7 +51,7 @@ export function Surface({
   title: string;
   eyebrow?: string;
   description?: string;
-  children: ReactNode;
+  children?: ReactNode;
 }) {
   return (
     <section className="surface-card">

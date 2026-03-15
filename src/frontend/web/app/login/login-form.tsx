@@ -13,24 +13,26 @@ export function LoginForm({ next }: { next: string }) {
     <form action={formAction} className="grid gap-[18px]">
       <input type="hidden" name="next" value={next} />
       <label className="grid gap-2">
-        <span className="text-[13px] font-bold tracking-[0.03em]">Work Email</span>
+        <span className="text-[13px] font-bold tracking-[0.03em] text-white">Work Email</span>
         <Input
           name="email"
           type="email"
           autoComplete="email"
           defaultValue="admin@carrental.local"
           placeholder="admin@carrental.local"
+          className="border-white/10 bg-white/[0.03] text-white shadow-none placeholder:text-slate-400 focus-visible:border-primary/50 focus-visible:bg-white/[0.05] focus-visible:ring-primary/15"
           required
         />
       </label>
       <label className="grid gap-2">
-        <span className="text-[13px] font-bold tracking-[0.03em]">Password</span>
+        <span className="text-[13px] font-bold tracking-[0.03em] text-white">Password</span>
         <Input
           name="password"
           type="password"
           autoComplete="current-password"
           defaultValue="change-me"
           placeholder="Enter password"
+          className="border-white/10 bg-white/[0.03] text-white shadow-none placeholder:text-slate-400 focus-visible:border-primary/50 focus-visible:bg-white/[0.05] focus-visible:ring-primary/15"
           required
         />
       </label>
@@ -43,7 +45,7 @@ export function LoginForm({ next }: { next: string }) {
         type="submit"
         disabled={pending}
         size="lg"
-        className="w-full btn-glow"
+        className="w-full rounded-[18px]"
       >
         {pending ? "Signing in..." : "Sign in to console"}
       </Button>

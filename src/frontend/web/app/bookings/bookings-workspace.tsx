@@ -123,7 +123,7 @@ export function BookingsWorkspace({
           <DialogHeader>
             <DialogTitle>Create booking</DialogTitle>
           </DialogHeader>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="dialog-form-grid">
             <SelectField label="Customer" value={form.customerId} onValueChange={(value) => setForm({ ...form, customerId: value })} options={customers.map((customer) => ({ value: customer.id, label: `${customer.fullName} · ${customer.customerCode}` }))} />
             <SelectField label="Vehicle" value={form.vehicleId} onValueChange={(value) => setForm({ ...form, vehicleId: value })} options={vehicles.map((vehicle) => ({ value: vehicle.id, label: `${vehicle.plateNumber} · ${vehicle.brand} ${vehicle.model}` }))} />
             <SelectField label="Pickup branch" value={form.pickupBranchId} onValueChange={(value) => setForm({ ...form, pickupBranchId: value })} options={branches.map((branch) => ({ value: branch.id, label: branch.name }))} />
@@ -150,7 +150,7 @@ export function BookingsWorkspace({
 
 function Field({ label, value, onChange, type = "text" }: { label: string; value: string; onChange: (value: string) => void; type?: string }) {
   return (
-    <div className="grid gap-2">
+    <div className="form-field">
       <Label>{label}</Label>
       <Input type={type} value={value} onChange={(event) => onChange(event.target.value)} />
     </div>
@@ -169,7 +169,7 @@ function SelectField({
   options: Array<{ value: string; label: string }>;
 }) {
   return (
-    <div className="grid gap-2">
+    <div className="form-field">
       <Label>{label}</Label>
       <Select value={value} onValueChange={onValueChange}>
         <SelectTrigger>

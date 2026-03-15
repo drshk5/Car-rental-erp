@@ -227,7 +227,7 @@ function VehicleDialog({
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
         </DialogHeader>
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="dialog-form-grid">
           <SelectField label="Owner" value={form.ownerId} onValueChange={(value) => onChange({ ...form, ownerId: value })} options={owners.map((owner) => ({ value: owner.id, label: owner.displayName }))} />
           <SelectField label="Branch" value={form.branchId} onValueChange={(value) => onChange({ ...form, branchId: value })} options={branches.map((branch) => ({ value: branch.id, label: branch.name }))} />
           <Field label="Plate number" value={form.plateNumber} onChange={(value) => onChange({ ...form, plateNumber: value })} />
@@ -255,7 +255,7 @@ function VehicleDialog({
 
 function Field({ label, value, onChange, type = "text" }: { label: string; value: string; onChange: (value: string) => void; type?: string }) {
   return (
-    <div className="grid gap-2">
+    <div className="form-field">
       <Label>{label}</Label>
       <Input type={type} value={value} onChange={(event) => onChange(event.target.value)} />
     </div>
@@ -274,7 +274,7 @@ function SelectField({
   options: Array<{ value: string; label: string }>;
 }) {
   return (
-    <div className="grid gap-2">
+    <div className="form-field">
       <Label>{label}</Label>
       <Select value={value} onValueChange={onValueChange}>
         <SelectTrigger>
