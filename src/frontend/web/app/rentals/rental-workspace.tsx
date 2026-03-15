@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useEffect, useMemo, useState, useTransition } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { fetchApi } from "@/lib/api-client";
 import { checkinRental, checkoutRental, getDashboardRentalSummary, getRentalById, getRentalQueue, getRentalStats, updateRentalDamageNotes } from "@/lib/rentals";
 import { formatCurrency, formatDate, formatDateTime } from "@/lib/format";
@@ -52,6 +52,7 @@ export function RentalWorkspace() {
   const [stats, setStats] = useState<RentalStats | null>(null);
   const [dashboard, setDashboard] = useState<DashboardRentalSummary | null>(null);
   const [selectedId, setSelectedId] = useState("");
+  const selectedIdRef = useRef("");
   const [selectedDetail, setSelectedDetail] = useState<RentalDetail | null>(null);
   const [loading, setLoading] = useState(true);
   const [detailLoading, setDetailLoading] = useState(false);
@@ -76,7 +77,7 @@ export function RentalWorkspace() {
   });
   const [damageNotesDraft, setDamageNotesDraft] = useState("");
 
-  async function loadWorkspace(preferredRentalId?: string) {
+  const loadWorkspace = useCallback(async (preferredRentalId?: string) => {
     setLoading(true);
     setError(null);
 
@@ -92,7 +93,7 @@ export function RentalWorkspace() {
         (booking) => normalizeBookingStatus(booking.status) === "confirmed" && !booking.hasActiveRental,
       );
 
-      const nextSelectedId = preferredRentalId || selectedId || rentalResponse.items[0]?.id || "";
+      const nextSelectedId = preferredRentalId || selectedIdRef.current || rentalResponse.items[0]?.id || "";
 
       setRentals(rentalResponse.items);
       setEligibleBookings(normalizedBookings);
@@ -108,11 +109,15 @@ export function RentalWorkspace() {
     } finally {
       setLoading(false);
     }
-  }
+  }, []);
+
+  useEffect(() => {
+    selectedIdRef.current = selectedId;
+  }, [selectedId]);
 
   useEffect(() => {
     void loadWorkspace();
-  }, []);
+  }, [loadWorkspace]);
 
   useEffect(() => {
     if (!selectedId) {
