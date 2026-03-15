@@ -1,0 +1,18 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: src/backend/CarRentalERP.Api/Dockerfile
+    container_name: car-rental-api
+    environment:
+      Authentication__SigningKey: ${CAR_RENTAL_AUTH_SIGNING_KEY:-dev-only-change-this-signing-key-with-32-plus-chars}
+      ConnectionStrings__DefaultConnection: Data Source=/app/data/car-rental-erp.db
+    ports:
+      - "8080:8080"
+    volumes:
+      - api-data-protection:/root/.aspnet/DataProtection-Keys
+      - api-db:/app/data
+
+volumes:
+  api-data-protection:
+  api-db:

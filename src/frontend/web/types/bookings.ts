@@ -1,0 +1,26 @@
+export type Booking = {
+  id: string;
+  bookingNumber: string;
+  customerId: string;
+  customerName: string;
+  vehicleId: string;
+  vehicleLabel: string;
+  pickupBranchId: string;
+  pickupBranchName: string;
+  returnBranchId: string;
+  returnBranchName: string;
+  startAtUtc: string;
+  endAtUtc: string;
+  pricingPlan: string | number;
+  baseAmount: number;
+  discountAmount: number;
+  depositAmount: number;
+  quotedTotal: number;
+  totalPaid?: number;
+  outstandingBalance?: number;
+  hasActiveRental?: boolean;
+  isOverdue?: boolean;
+  status: string | number;
+  createdAtUtc: string;
+  updatedAtUtc: string | null;
+};

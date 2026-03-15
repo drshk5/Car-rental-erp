@@ -1,0 +1,8 @@
+.git
+.gitignore
+**/bin
+**/obj
+**/.next
+**/node_modules
+Dockerfile*
+docker-compose*.yml
